@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
+app_name = 'ecc_vs_dilithium_analysis'
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('', views.index, name='index'),
+    path('api/run_test/', views.run_test, name='run_test'),
+    path('api/get_results/', views.get_results, name='get_results'),
+    path('api/export_csv/', views.export_csv, name='export_csv'),
+    path('api/statistics/', views.get_statistics, name='statistics'),
 ]

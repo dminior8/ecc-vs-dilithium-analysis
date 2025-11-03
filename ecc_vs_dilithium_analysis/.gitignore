@@ -1,0 +1,53 @@
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+
+# Django
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+
+# Environment / secrets
+.env
+.env.*
+*.secret
+*.local
+
+# Virtual environments
+venv/
+.venv/
+
+# Testing / coverage / type checking
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Build artifacts
+dist/
+build/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
