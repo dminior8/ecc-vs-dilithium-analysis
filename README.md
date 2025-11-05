@@ -2,15 +2,6 @@
 
 A Django web application that compares **REAL cryptographic implementations** between ECC (NIST P-256) and CRYSTALS-Dilithium (ML-DSA). The app provides an interactive UI to run actual benchmarks with real time and memory measurements.
 
-## KEY DIFFERENCES FROM MOCK VERSION
-
-| Feature | Mock | This Version |
-|---------|------|--------------|
-| ECC Implementation | Fake data | FIPS 186-5 ECDSA |
-| Dilithium Implementation | Fake data | FIPS 204 ML-DSA |
-| Time Measurements | Simulated | Real perf_counter() |
-| Memory Measurements | Fixed values | Actual psutil() |
-| Academic Compliance | No | Yes (NIST standards) |
 
 ## Features
 
