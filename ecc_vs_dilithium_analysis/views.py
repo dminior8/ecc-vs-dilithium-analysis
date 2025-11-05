@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
 import csv
+import traceback
 from datetime import datetime
 
 from .controller import TestController
@@ -81,10 +82,15 @@ def run_test(request):
         }, status=400)
 
     except Exception as e:
-        return JsonResponse({
+        from django.conf import settings
+        error_response = {
             'status': 'error',
             'message': str(e)
-        }, status=500)
+        }
+        # Include traceback in debug mode
+        if settings.DEBUG:
+            error_response['traceback'] = traceback.format_exc()
+        return JsonResponse(error_response, status=500)
 
 
 @require_http_methods(["GET"])
@@ -103,10 +109,15 @@ def get_results(request):
         })
 
     except Exception as e:
-        return JsonResponse({
+        from django.conf import settings
+        error_response = {
             'status': 'error',
             'message': str(e)
-        }, status=500)
+        }
+        # Include traceback in debug mode
+        if settings.DEBUG:
+            error_response['traceback'] = traceback.format_exc()
+        return JsonResponse(error_response, status=500)
 
 
 @require_http_methods(["GET"])
@@ -133,10 +144,15 @@ def export_csv(request):
         return response
 
     except Exception as e:
-        return JsonResponse({
+        from django.conf import settings
+        error_response = {
             'status': 'error',
             'message': str(e)
-        }, status=500)
+        }
+        # Include traceback in debug mode
+        if settings.DEBUG:
+            error_response['traceback'] = traceback.format_exc()
+        return JsonResponse(error_response, status=500)
 
 
 @require_http_methods(["GET"])
@@ -167,7 +183,12 @@ def get_statistics(request):
         })
 
     except Exception as e:
-        return JsonResponse({
+        from django.conf import settings
+        error_response = {
             'status': 'error',
             'message': str(e)
-        }, status=500)
+        }
+        # Include traceback in debug mode
+        if settings.DEBUG:
+            error_response['traceback'] = traceback.format_exc()
+        return JsonResponse(error_response, status=500)
